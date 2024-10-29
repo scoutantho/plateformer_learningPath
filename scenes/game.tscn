@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=4 uid="uid://c1uq41ykafevi"]
+[gd_scene load_steps=9 format=4 uid="uid://c1uq41ykafevi"]
 
 [ext_resource type="Texture2D" uid="uid://bhx3bmkkefjli" path="res://Assets/Four Seasons Platformer Tileset [16x16][FREE] - RottingPixels/four-seasons-tileset.png" id="1_5gcxl"]
 [ext_resource type="PackedScene" uid="uid://ci6na00f6bmue" path="res://scenes/Player.tscn" id="2_defjo"]
+[ext_resource type="PackedScene" uid="uid://paolfjlkcxi1" path="res://scenes/killzone.tscn" id="3_hoy1i"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_p836l"]
 texture = ExtResource("1_5gcxl")
@@ -292,6 +293,8 @@ physics_layer_0/collision_layer = 1
 physics_layer_0/collision_mask = 0
 sources/0 = SubResource("TileSetAtlasSource_vt72w")
 
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_eoldq"]
+
 [node name="Game" type="Node2D"]
 
 [node name="Background" type="TileMapLayer" parent="."]
@@ -312,3 +315,9 @@ tile_set = SubResource("TileSet_2h638")
 
 [node name="Player" parent="." instance=ExtResource("2_defjo")]
 position = Vector2(30, -26)
+
+[node name="Killzone" parent="." instance=ExtResource("3_hoy1i")]
+position = Vector2(380, 312)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
+shape = SubResource("WorldBoundaryShape2D_eoldq")
