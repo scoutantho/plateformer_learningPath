@@ -272,19 +272,18 @@ animations = [{
 size = Vector2(8, 9)
 
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
+scale = Vector2(2, 2)
 collision_layer = 2
 script = ExtResource("1_1u7eo")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_b52nf")
-animation = &"Dying"
+animation = &"Idle"
 autoplay = "Idle"
-frame = 2
-frame_progress = 0.930663
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 5.5)
+position = Vector2(0, 6.5)
 shape = SubResource("RectangleShape2D_edcro")
 
 [node name="Camera_player" type="Camera2D" parent="."]
