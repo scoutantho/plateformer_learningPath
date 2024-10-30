@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://348bka2pu51n"]
+
+[ext_resource type="Script" path="res://Interaction/interaction_manager.gd" id="1_rfpu5"]
+[ext_resource type="FontFile" uid="uid://d0gx5r0wls4yw" path="res://Assets/5 fonts/FutureMillennium.ttf" id="2_v0c7t"]
+
+[node name="InteractionManager" type="Node2D"]
+script = ExtResource("1_rfpu5")
+
+[node name="Label" type="Label" parent="."]
+z_index = 20
+texture_filter = 1
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_fonts/font = ExtResource("2_v0c7t")
+theme_override_font_sizes/font_size = 21
+text = "[E] to interact"
