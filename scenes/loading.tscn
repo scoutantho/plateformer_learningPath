@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://bpkoqq3gixmc7"]
+
+[ext_resource type="Texture2D" uid="uid://cwr0dbunngjmp" path="res://Assets/Four Seasons Platformer Tileset [16x16][FREE] - RottingPixels/screenshot-4.png" id="1_30s1h"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qbm6u"]
+atlas = ExtResource("1_30s1h")
+region = Rect2(720, 0, 240, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_63jcn"]
+atlas = ExtResource("1_30s1h")
+region = Rect2(720, 120, 240, 120)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_86h0t"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qbm6u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_63jcn")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
+
+[node name="Loading" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_86h0t")
+autoplay = "default"
+frame_progress = 0.304278

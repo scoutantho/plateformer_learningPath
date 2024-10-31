@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=3 uid="uid://lsrnrtqyrhn0"]
+
+[ext_resource type="Script" path="res://Scripts/door_finish.gd" id="1_uwjok"]
+[ext_resource type="PackedScene" uid="uid://b0esjfwukdatt" path="res://Interaction/Interaction area/interaction_area.tscn" id="2_gkbgs"]
+
+[sub_resource type="Gradient" id="Gradient_5f2j5"]
+offsets = PackedFloat32Array(0, 0.994898, 1)
+colors = PackedColorArray(0.2, 0, 0, 1, 1, 0, 0, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_bievq"]
+gradient = SubResource("Gradient_5f2j5")
+fill_to = Vector2(1, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_331lo"]
+size = Vector2(28, 28)
+
+[node name="DoorFinish2" type="Node2D"]
+script = ExtResource("1_uwjok")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = -0.00131026
+scale = Vector2(0.445, 0.445)
+texture = SubResource("GradientTexture2D_bievq")
+
+[node name="InteractionArea" parent="." instance=ExtResource("2_gkbgs")]
+rotation = -0.00131026
+action_name = "go next"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
+shape = SubResource("RectangleShape2D_331lo")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.6
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
