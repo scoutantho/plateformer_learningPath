@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=4 uid="uid://c1uq41ykafevi"]
+[gd_scene load_steps=11 format=4 uid="uid://c1uq41ykafevi"]
 
 [ext_resource type="Texture2D" uid="uid://bhx3bmkkefjli" path="res://Assets/Four Seasons Platformer Tileset [16x16][FREE] - RottingPixels/four-seasons-tileset.png" id="1_5gcxl"]
 [ext_resource type="PackedScene" uid="uid://ci6na00f6bmue" path="res://scenes/Player.tscn" id="2_defjo"]
 [ext_resource type="PackedScene" uid="uid://paolfjlkcxi1" path="res://scenes/killzone.tscn" id="3_hoy1i"]
 [ext_resource type="PackedScene" uid="uid://lsrnrtqyrhn0" path="res://scenes/door_finish.tscn" id="4_5k3s5"]
+[ext_resource type="PackedScene" uid="uid://814o52i0ih0c" path="res://scenes/enemy.tscn" id="5_jxo8g"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_p836l"]
 texture = ExtResource("1_5gcxl")
@@ -330,3 +331,6 @@ shape = SubResource("WorldBoundaryShape2D_eoldq")
 
 [node name="DoorFinish2" parent="." instance=ExtResource("4_5k3s5")]
 position = Vector2(1208, -94)
+
+[node name="Enemy" parent="." instance=ExtResource("5_jxo8g")]
+position = Vector2(169, 34)
