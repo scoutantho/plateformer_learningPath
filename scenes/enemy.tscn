@@ -1,24 +1,8 @@
-[gd_scene load_steps=34 format=3 uid="uid://814o52i0ih0c"]
+[gd_scene load_steps=32 format=3 uid="uid://814o52i0ih0c"]
 
+[ext_resource type="Script" path="res://Scripts/enemy.gd" id="1_8kdb5"]
 [ext_resource type="Texture2D" uid="uid://bpvs76m5figgb" path="res://Assets/dungeonSprites_ v1.5/demon_.png" id="2_mkuqt"]
 [ext_resource type="PackedScene" uid="uid://paolfjlkcxi1" path="res://scenes/killzone.tscn" id="3_2mvbw"]
-
-[sub_resource type="GDScript" id="GDScript_y35cf"]
-script/source = "extends CharacterBody2D
-
-const SPEED = 300.0
-
-func _physics_process(delta: float) -> void:	
-	velocity += get_gravity() * delta
-	velocity.x = SPEED
-	move_and_slide()
-
-
-func _on_damage_box_body_entered(body: Node2D) -> void:
-	print(\"i die ?\")
-	queue_free()
-	pass # Replace with function body.
-"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wjoio"]
 atlas = ExtResource("2_mkuqt")
@@ -231,14 +215,6 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="Animation" id="Animation_fpmim"]
-resource_name = "new_animation"
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_eukfn"]
-_data = {
-"new_animation": SubResource("Animation_fpmim")
-}
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_41fan"]
 size = Vector2(8, 10)
 
@@ -247,7 +223,7 @@ size = Vector2(14, 6.5)
 
 [node name="Enemy" type="CharacterBody2D"]
 collision_layer = 0
-script = SubResource("GDScript_y35cf")
+script = ExtResource("1_8kdb5")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
@@ -257,11 +233,6 @@ sprite_frames = SubResource("SpriteFrames_bvlj3")
 animation = &"idle"
 autoplay = "idle"
 frame_progress = 0.805444
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_eukfn")
-}
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
 scale = Vector2(2, 2)
