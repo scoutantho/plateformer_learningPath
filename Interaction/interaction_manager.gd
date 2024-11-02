@@ -6,7 +6,7 @@ extends Node2D
 const base_text = "[E] to "
 
 var active_areas = [] #hold all actions available
-var can_interact = true
+var can_interact = Globals.player_canInteract #todo : check if it's ref or copy of value 
 
 func register_area(area: InteractionArea):
 	active_areas.push_back(area)

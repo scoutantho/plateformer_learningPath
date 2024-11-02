@@ -1,10 +1,12 @@
-[gd_scene load_steps=11 format=4 uid="uid://c1uq41ykafevi"]
+[gd_scene load_steps=15 format=4 uid="uid://c1uq41ykafevi"]
 
 [ext_resource type="Texture2D" uid="uid://bhx3bmkkefjli" path="res://Assets/Four Seasons Platformer Tileset [16x16][FREE] - RottingPixels/four-seasons-tileset.png" id="1_5gcxl"]
 [ext_resource type="PackedScene" uid="uid://ci6na00f6bmue" path="res://scenes/Player.tscn" id="2_defjo"]
 [ext_resource type="PackedScene" uid="uid://paolfjlkcxi1" path="res://scenes/killzone.tscn" id="3_hoy1i"]
 [ext_resource type="PackedScene" uid="uid://lsrnrtqyrhn0" path="res://scenes/door_finish.tscn" id="4_5k3s5"]
 [ext_resource type="PackedScene" uid="uid://814o52i0ih0c" path="res://scenes/enemy.tscn" id="5_jxo8g"]
+[ext_resource type="Texture2D" uid="uid://dndb7eeeo3acm" path="res://icon.svg" id="6_6cgp8"]
+[ext_resource type="PackedScene" uid="uid://b0esjfwukdatt" path="res://Interaction/Interaction area/interaction_area.tscn" id="7_qx5la"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_p836l"]
 texture = ExtResource("1_5gcxl")
@@ -297,6 +299,11 @@ sources/0 = SubResource("TileSetAtlasSource_vt72w")
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_eoldq"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pe457"]
+size = Vector2(20, 57)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_odpvk"]
+
 [node name="Game" type="Node2D"]
 
 [node name="Tilemaps" type="Node2D" parent="."]
@@ -334,3 +341,22 @@ position = Vector2(1208, -94)
 
 [node name="Enemy" parent="." instance=ExtResource("5_jxo8g")]
 position = Vector2(169, 34)
+
+[node name="Area2D" type="StaticBody2D" parent="."]
+position = Vector2(0, -20)
+collision_layer = 0
+collision_mask = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D"]
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("6_6cgp8")
+
+[node name="InteractionArea" parent="Area2D" instance=ExtResource("7_qx5la")]
+action_name = "tointeract"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D/InteractionArea"]
+position = Vector2(0, -18.5)
+shape = SubResource("RectangleShape2D_pe457")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_odpvk")
