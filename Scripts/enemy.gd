@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 const SPEED = 300.0
 @onready var killzone =  $Killzone
+
 func _physics_process(delta: float) -> void:	
 	velocity += get_gravity() * delta
 	velocity.x = SPEED

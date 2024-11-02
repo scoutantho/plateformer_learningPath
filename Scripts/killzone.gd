@@ -1,14 +1,15 @@
 extends Area2D
 
-var has_died := false
+# var has_died := false
 
 func _on_body_entered(_body: Node2D) -> void:
-	if has_died:
+	
+	if GeneralGame.player_hasDied:
 		return
-	has_died = true
+	GeneralGame.player_hasDied = true
 	print("you die!")
 	$Timer.start()
 
 func _on_timer_timeout() -> void:
 	get_tree().reload_current_scene()
-	has_died = false
+	GeneralGame.player_hasDied = false
