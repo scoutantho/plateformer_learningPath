@@ -17,7 +17,7 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-GeneralGame="res://Scripts/generalGame.gd"
+GameManager="*res://GameManager/Game_Manager.tscn"
 InteractionManager="*res://Interaction/interactionManager.tscn"
 
 [input]
