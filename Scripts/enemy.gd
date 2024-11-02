@@ -11,7 +11,7 @@ func _physics_process(delta: float) -> void:
 
 
 func _on_damage_box_body_entered(body: Node2D) -> void:
-	if body.name == "Player" and killzone.has_died: #issue has_died set as false by default
+	if body.name == "Player" and Globals.player_hasDied: #issue has_died set as false by default
 		return
 
 	queue_free()
